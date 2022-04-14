@@ -2,14 +2,14 @@ import AbstractView from './AbstractView.js';
 import PurchaseLottoView from './PurchaseLottoView.js';
 import WinningLottoView from './WinningLottoView.js';
 
-class LottoVendingView extends AbstractView {
+class App extends AbstractView {
   static #purchasedLotto() {
     WinningLottoView.showWinningLotto();
   }
 
   static eventBindings() {
-    PurchaseLottoView.eventBindings(LottoVendingView.#purchasedLotto);
-    WinningLottoView.eventBindings(LottoVendingView.initialize);
+    PurchaseLottoView.eventBindings(this.#purchasedLotto);
+    WinningLottoView.eventBindings(this.initialize);
   }
 
   static initialize() {
@@ -17,4 +17,4 @@ class LottoVendingView extends AbstractView {
     WinningLottoView.initialize();
   }
 }
-export default LottoVendingView;
+export default App;
